@@ -6,7 +6,7 @@ describe('PrivateRoute', () => {
     let component;
     
     beforeEach(() => {
-        component = shallow(<PrivateRoute />)
+        component = shallow(<PrivateRoute isLoggedIn={true} />)
     })
 
     test('it renders', () => {

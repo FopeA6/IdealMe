@@ -6,7 +6,7 @@ describe('LoggedOutRoute', () => {
     let component;
 
     beforeEach(() => {
-        component = shallow(<LoggedOutRoute />);
+        component = shallow(<LoggedOutRoute isLoggedIn={true}/>);
     })
 
     test('it renders', () => {
@@ -27,6 +27,8 @@ describe('LoggedOutRoute', () => {
         expect(LoggedOutRoute).toHaveLength(1)
     })
 
-    test('')
-
+    test('It calls props.isLoggedIn when rendered', () => {
+        let LoggedOutRoute = component.find('Route')
+        expect(LoggedOutRoute).toHaveLength(1)
+    })
 })
