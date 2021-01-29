@@ -3,7 +3,7 @@ import RecipeCard from '../../Components/RecipeCard'
 
         
 const Recipe = () => {
-   
+    key = process.env.RECIPE_KEY;
 
   const [recipes, setRecipes] = useState ([]);
   const [search, setSearch] = useState('');

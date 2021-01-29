@@ -9,6 +9,11 @@
     "build": "webpack --config config/webpack.config.production.js",
     "coverage": "jest --setupFiles ./src/test/setupTests.js --coverage --watchAll=false"
   },
+  "react-dotenv": {
+    "whitelist": [
+      "RECIPE_KEY"
+    ]
+  },
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
@@ -24,6 +29,7 @@
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
+    "dotenv-webpack": "^6.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "html-webpack-plugin": "^4.5.0",
