@@ -37,7 +37,7 @@ def welcome():
 def all_users():
     db = get_db()
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM users")
+    cursor.execute("SELECT * FROM calories")
     users = cursor.fetchall()
     #print(users)
     return jsonify({"users": users})
@@ -153,17 +153,24 @@ def my_progress(name):
     return jsonify({"err": "user details not found"})
 
 
-@server.route('/update-count', methods=['PATCH'])
-def calories_count():
+@server.route('/update-count/<int:id>', methods=['PATCH'])
+def calories_count(id):
     db = get_db()
     cursor = db.cursor()
 
     today = request.get_json()['today']
     calories_consumed = request.get_json()['caloriesConsumed']
-    user_id = request.get_json()['userId']
-
-    cursor.execute("UPDATE calories SET caloriesConsumed = caloriesConsumed + (?) WHERE today = (?) AND userId = (?)", (calories_consumed, today, user_id))
+    
+    #testdate = "01/02/2021"
+    #cursor.execute("Select * FROM calories WHERE today = ? AND userId = ?", (today, id))
+    #user_data = cursor.fetchall()
+    #return jsonify(user_data)
+    
+    #user_id = request.get_json()['userId']
+    cursor.execute("UPDATE calories SET caloriesConsumed = caloriesConsumed + ? WHERE today = ? AND userId = ?", (calories_consumed, today, id))
+    
     db.commit()
+    print(calories_consumed)
     return jsonify({"msg": "calories have to added"})
 
 @server.route('/update', methods=['POST'])
@@ -198,6 +205,15 @@ def update_data():
     return jsonify({"msg": "Data not found"})
 
 
+
+@server.route('/remove/<int:id>', methods=['DELETE'])
+def get_rid(id):
+    db = get_db()
+    cursor = db.cursor()
+
+    cursor.execute("DELETE FROM calories WHERE id = ?;", (id,))
+    db.commit()
+    return jsonify({"msg": "the deed has been done"})
 
 if __name__ == "__main__":
     server.run(port=5000, debug=True)

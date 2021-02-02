@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import DoughnutChart from "../../Components/DoughnutChart";
+import DailyCalories from "../../Components/DailyCalories";
+import NewDayBtn from "../../Components/NewDayBtn";
 
 class Calories extends Component {
   state = {
@@ -8,7 +10,8 @@ class Calories extends Component {
     foodData: [],
     totalCal: 0,
     uptoDate: true,
-    chartData:{}
+    chartData: {},
+    newUser: false,
   };
 
   componentDidMount() {
@@ -21,6 +24,7 @@ class Calories extends Component {
     );
     const data = await resp.json();
     if (data.err) {
+      this.setState({ newUser: true });
       throw Error(data.err);
     }
 
@@ -31,9 +35,8 @@ class Calories extends Component {
       day: "2-digit",
     }).format(today);
 
-    console.log(data[0].today == "31-01-2021");
     if (data[0].today == currentDate) {
-      this.setState({ data });
+      this.setState({ data: data, uptoDate: true });
     } else this.setState({ uptoDate: false, data: data });
   };
 
@@ -78,109 +81,70 @@ class Calories extends Component {
     let totalfat = allfat.reduce((a, b) => a + b);
     this.setState({
       totalCal: totalcalories,
-      
     });
 
-
     this.setState({
-        chartData:{
-          labels: ['Total Carbohydrates', 'Total Protein', 'Total Fat'],
-          datasets:[
-              {
-                 label: 'Gramms', 
-                 data:[
-                     totalcarb,
-                     totalprotein,
-                     totalfat
-                 ] ,
-                 backgroundColor:[
-                     'rgba(255,25,55,0.6)',
-                     'rgba(255,56,255,0.6)',
-                     'rgba(34,255,255,0.6)'
-                 ]
-              }
-          ]
-        
-    }})
-        
-  };
-
-  //   addTotal = (data) => {
-  //     const alldata = data.map((i) => i.calories);
-  //     let total = alldata.reduce((a, b) => a + b);
-  //     this.setState({
-  //       totalCal: total,
-  //     });
-  //   };
-
-  addCalories = async (e, user) => {
-    e.preventDefault();
-    const today = new Date();
-    const currentDate = new Intl.DateTimeFormat("en-Uk", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    }).format(today);
-
-    const options = {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        caloriesConsumed: e.target.caloriesValue,
-        today: currentDate,
-        userId: user,
-      }),
-    };
-
-    const sendData = await fetch(`http://localhost:5000/update-count`, options);
-    const res = await sendData.json();
-    if (res.err) {
-      throw Error(res.err);
-    }
-    this.fetchCalories();
+      chartData: {
+        labels: ["Total Carbohydrates", "Total Protein", "Total Fat"],
+        datasets: [
+          {
+            label: "Gramms",
+            data: [totalcarb, totalprotein, totalfat],
+            backgroundColor: [
+              "rgba(255,25,55,0.6)",
+              "rgba(255,56,255,0.6)",
+              "rgba(34,255,255,0.6)",
+            ],
+          },
+        ],
+      },
+    });
   };
 
   render() {
-    const data = this.state.data.map((d, i) => {
-      if (this.state.uptoDate) {
-        return (
-          <div key={i}>
-            <p>BMI: {this.calculateBMI(d.myWeight, d.myHeight)}</p>
-            <p>Daily Calories Intake: {d.caloriesGoal}</p>
-            <p>Calories Consumed: {d.caloriesConsumed}</p>
-            <form onSubmit={(e) => this.addCalories(e, d.userId)}>
-              <label htmlFor="adding">Add calories</label>
-              <input type="number" step=".01" name="caloriesValue" />
-              <input type="submit" value="add calories" />
-            </form>
-          </div>
-        );
-      } else {
-        return (
-          <div key={i}>
-            <p>Welcome! Do you want to start todays count?</p>
-          </div>
-        );
-      }
+    let data = this.state.data.map((d, i) => {
+      return (
+        <DailyCalories
+          key={i}
+          BMI={this.calculateBMI(d.myWeight, d.myHeight)}
+          intake={d.caloriesGoal}
+          consumed={d.caloriesConsumed}
+          user={d.userId}
+          fetchCalories={this.fetchCalories}
+        />
+      );
     });
 
     const renderCalories = this.state.foodData.map((p, idx) => {
       return (
-        <tr key={idx}>
-          <td>{p.name}</td>
-          <td>{p.calories}</td>
-          <td>{p.carbohydrates_total_g}g</td>
-          <td>{p.protein_g}g</td>
-          <td>{p.fat_total_g}g</td>
-          <td>{p.serving_size_g}g</td>
-        </tr>
+        <div key={idx}>
+          <tr key={idx}>
+            <td>{p.name}</td>
+            <td>{p.calories}</td>
+            <td>{p.carbohydrates_total_g}g</td>
+            <td>{p.protein_g}g</td>
+            <td>{p.fat_total_g}g</td>
+            <td>{p.serving_size_g}g</td>
+          </tr>
+        </div>
       );
     });
+
     //calculate bmi, average calories consumption, search api, add today btn
     return (
       <div>
         <h1> Hello to calories page! </h1>
-        {data[0]}
+        {this.state.newUser ? (
+          <p>Please head over to Details page and enter your details</p>
+        ) : this.state.uptoDate ? (
+          data[0]
+        ) : (
+          <NewDayBtn
+            data={this.state.data[0]}
+            fetchCalories={this.fetchCalories}
+            user={this.props.user.userId}
+          />
+        )}
 
         <div>
           <h2>What did you eat?</h2>
@@ -201,7 +165,7 @@ class Calories extends Component {
           <div>
             <h3>Your food has the following nutritional value:</h3>
             <p>Total calories: {this.state.totalCal}</p>
-            <DoughnutChart chartdata={this.state.chartData}/>
+            <DoughnutChart chartdata={this.state.chartData} />
 
             <table>
               <caption>Nutritional Values</caption>
