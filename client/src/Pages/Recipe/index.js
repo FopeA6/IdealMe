@@ -38,17 +38,15 @@ const Recipe = () => {
                 <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
                 <button className="search-button" type="submit">Search</button>
             </form>
-                {recipes.map(recipe =>(
-                    <RecipeCard 
-                    key={recipe.recipe.label} 
-                    title={recipe.recipe.label} 
-                    calories={Math.round(recipe.recipe.calories)} 
-                    image={recipe.recipe.image}
-                    ingredients={recipe.recipe.ingredients}
-                    // preparation={recipe.recipe.preparation}
-                    // url={recipe.recipe.url}
+                {recipes.map((recipe,idx) =><RecipeCard key={idx} 
+                        title={recipe.recipe.label} 
+                        calories={Math.round(recipe.recipe.calories)} 
+                        image={recipe.recipe.image}
+                        ingredients={recipe.recipe.ingredients}
+                        // preparation={recipe.recipe.preparation}
+                        // url={recipe.recipe.url}
                     />
-                ))}
+                )}
             </div>
         )
         

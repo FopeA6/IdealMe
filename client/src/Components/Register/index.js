@@ -30,7 +30,7 @@ class Register extends Component {
             const r = await fetch(`http://localhost:5000/auth/register`, options);
             const data = await r.json();
             if (data.err) { throw Error(data.err) }
-            this.props.login(userData);
+            this.props.login(userData, true);
             this.props.history.push('./calories')
         } catch (err) {
             console.warn(err);
