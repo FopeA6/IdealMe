@@ -117,7 +117,7 @@ class Calories extends Component {
 
     const renderCalories = this.state.foodData.map((p, idx) => {
       return (
-        <div key={idx}>
+       
           <tr key={idx}>
             <td>{p.name}</td>
             <td>{p.calories}</td>
@@ -126,7 +126,7 @@ class Calories extends Component {
             <td>{p.fat_total_g}g</td>
             <td>{p.serving_size_g}g</td>
           </tr>
-        </div>
+       
       );
     });
 
