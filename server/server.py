@@ -136,17 +136,18 @@ def new_details():
 
 
 #should there be a column for calories consumed in that day for progress
-@server.route('/progress/<string:name>', methods=['GET'])
-def my_progress(name):
+@server.route('/progress/<int:id>', methods=['GET'])
+def my_progress(id):
     db = get_db()
     cursor = db.cursor()
-    cursor.execute("""
-        SELECT calories.myWeight, calories.today from calories
-        INNER JOIN users
-        ON calories.userId = users.id
-        WHERE users.name = (?)
-        ORDER BY calories.id DESC;"""
-        , (name,))
+    #cursor.execute("""
+    #    SELECT calories.myWeight, calories.today from calories
+    #    INNER JOIN users
+    #    ON calories.userId = users.id
+    #    WHERE users.name = (?)
+    #    ORDER BY calories.id DESC;"""
+    #    , (name,))
+    cursor.execute("SELECT calories.myWeight, calories.today FROM calories WHERE userId = ?;", (id,))
     user_date = cursor.fetchall()
     if len(user_date) > 0:
         return jsonify(user_date)
