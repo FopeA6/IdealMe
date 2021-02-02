@@ -8,7 +8,7 @@ CREATE TABLE calories (
     caloriesGoal INTEGER, 
     caloriesConsumed INTEGER,
     today DATE, 
-    userId FORIGN KEY
+    userId FOREIGN KEY
     );
 
 DROP TABLE IF EXISTS users;

@@ -10,8 +10,26 @@ To visit the website click [here](https://)
 
 ## To use
 
-Clone down the repo and `npm install` to download the packages
+### Client
+Clone down the repo and cd into client `npm install` to download the packages
 To start the app, use `npm start`
+*Please note that you will need to set up an `.env` file in the client folder and obtain API keys to run our programm*
+
+APP_ID = xxx from https://developer.edamam.com/edamam-recipe-api-demo
+APP_KEY = xxx from https://developer.edamam.com/edamam-recipe-api-demo
+YOUR_API_KEY = xxx from https://calorieninjas.com/
+
+
+
+
+
+### Server
+_Note: make sure you have [pipenv installed](https://github.com/getfutureproof/fp_guides_wiki/wiki/Virtual-Environment) before continuing._
+
+- `cd` into server
+- `pipenv install -r requirements.txt` to install dependencies
+- `pipenv shell` to activate your virtual environment for the project
+- `python server.py` to run the script
 
 ## Technologies used
 
