@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+
 
 class Register extends Component {
     state = {
-        username: "",
+        name: "",
         email: "",
         password: "",
         passwordConfirmation: ""
@@ -16,7 +18,7 @@ class Register extends Component {
         e.preventDefault();
         try {
             const userData = {
-                username: this.state.username,
+                name: this.state.name,
                 password: this.state.password,
                 email: this.state.email
             }
@@ -25,7 +27,7 @@ class Register extends Component {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userData)
             }
-            const r = await fetch(`http://localhost:3000/auth/register`, options);
+            const r = await fetch(`http://localhost:5000/auth/register`, options);
             const data = await r.json();
             if (data.err) { throw Error(data.err) }
             this.props.login(userData);
@@ -33,7 +35,7 @@ class Register extends Component {
         } catch (err) {
             console.warn(err);
             this.setState({
-                username: "",
+                name: "",
                 password: "",
                 email: "",
                 passwordConfirmation: ""
@@ -49,7 +51,7 @@ class Register extends Component {
                 <form onSubmit={this.register} >
                     <div className="loginInput">
                         <label htmlFor="username">Your new username</label>
-                        <input type="text" name="username" onChange={this.handleInput} />
+                        <input type="text" name="name" onChange={this.handleInput} />
                     </div>
                     <div className="loginInput">
                         <label htmlFor="email">Your email</label>
@@ -72,6 +74,6 @@ class Register extends Component {
     }
 }
 
-export default Register;
+export default withRouter(Register);
 
 // value={this.state.username} value={this.state.password}  value={this.state.passwordConfirmation} 

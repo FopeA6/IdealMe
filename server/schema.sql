@@ -4,9 +4,9 @@ CREATE TABLE calories (
     myHeight INTEGER, 
     myWeight INTEGER, 
     age INTEGER, 
-    fitnessLevel , 
-    BMI, 
-    calories INTEGER, 
+    fitnessLevel VARCHAR(255), 
+    caloriesGoal INTEGER, 
+    caloriesConsumed INTEGER,
     today DATE, 
     userId FORIGN KEY
     );

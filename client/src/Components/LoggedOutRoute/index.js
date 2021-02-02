@@ -5,7 +5,7 @@ const LoggedOutRoute = ({ component: Component, isLoggedIn, ...rest }) => (
     <Route render={() => (
         !isLoggedIn
             ? <Component {...rest} />
-            : <Redirect to='/habits' />
+            : <Redirect to='/home' />
     )} />
 )
 
