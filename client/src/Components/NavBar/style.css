@@ -1,0 +1,32 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: orange;
+  border-right: 10px solid rgb(216, 216, 216);
+  height: 100vh;
+  width: 100px;
+  font-family: poppins, serif;
+}
+
+.navOptions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 60%;
+  padding-top: 10px;
+}
+
+.image {
+  width: 70%;
+  cursor: pointer;
+}
+
+.image.hover {
+  scale: 1.1;
+}
+
+.icon {
+  width: 100%;
+}
