@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { SideBar } from './SideBar';
 import HomeIcon from './HomeIcon.png';
 import PieChartIcon from './PieChartIcon.png';
 import RecipeIcon from './RecipeIcon.png';

@@ -42,7 +42,7 @@ class App extends React.Component {
                   <LoggedOutRoute path='/login' isLoggedIn={this.state.isLoggedIn} component={()=> <Login login={this.login}/>} />
                   <LoggedOutRoute path='/register' isLoggedIn={this.state.isLoggedIn} component={Register} /> 
                   <PrivateRoute path='/calories' isLoggedIn={this.state.isLoggedIn} component={()=> <Calories user={this.state.currentUser}/>} />
-                  <PrivateRoute path='/details' isLoggedIn={this.state.isLoggedIn} component={()=> <Userdetails user={this.state.currentUser}/>} />
+                  <PrivateRoute path='/Userdetails' isLoggedIn={this.state.isLoggedIn} component={()=> <Userdetails user={this.state.currentUser}/>} />
                   <PrivateRoute path='/recipe' isLoggedIn={this.state.isLoggedIn} component={() => <Recipe user={this.state.currentUser} />} />
               </Switch>
           </main>
