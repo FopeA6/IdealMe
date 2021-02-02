@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import DailyCalories from '../../Components/DailyCalories';
+import NewDayBtn from '../../Components/NewDayBtn';
 
 class Calories extends Component {
 
@@ -7,7 +9,8 @@ class Calories extends Component {
         search: "",
         foodData: [],
         totalCal: 0,
-        uptoDate: true
+        uptoDate: true,
+        newUser: false
     }
 
     componentDidMount(){
@@ -17,17 +20,22 @@ class Calories extends Component {
     fetchCalories = async () => {
         const resp = await fetch(`http://localhost:5000/details/${this.props.user.name}`);
         const data = await resp.json();
-        if(data.err){ throw Error(data.err) }
+        if(data.err){ 
+            this.setState({ newUser: true })
+            throw Error(data.err) 
+        }
         
         const today = new Date()
         const currentDate = new Intl.DateTimeFormat('en-Uk', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(today);
         
-        console.log(data[0].today == "31-01-2021")
+        //console.log(currentDate == "02/02/2021")
+        //console.log(data[0].today == "31-01-2021")
         if(data[0].today == currentDate){
-            this.setState({ data })
+            this.setState({ data: data, uptoDate: true })
         }else(
             this.setState({ uptoDate : false, data: data })
         )
+
     }
 
     calculateBMI = (weight, height) => {
@@ -66,49 +74,19 @@ class Calories extends Component {
         })
     }
 
-    addCalories = async(e, user) => {
-        e.preventDefault();
-        const today = new Date()
-        const currentDate = new Intl.DateTimeFormat('en-Uk', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(today);
-        
-        const options = {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                caloriesConsumed: e.target.caloriesValue,
-                today: currentDate,
-                userId: user
-            })
-        }
-
-        const sendData = await fetch(`http://localhost:5000/update-count`, options);
-        const res = await sendData.json();
-        if(res.err){ throw Error(res.err) }
-        this.fetchCalories();
-    }
 
     render() {
-        const data = this.state.data.map((d,i) => {
-            if(this.state.uptoDate){
-                return (
-                    <div key={i}>
-                        <p>BMI: {this.calculateBMI(d.myWeight, d.myHeight)}</p>
-                        <p>Daily Calories Intake: {d.caloriesGoal}</p>
-                        <p>Calories Consumed: {d.caloriesConsumed}</p>
-                        <form onSubmit={(e)=> this.addCalories(e, d.userId)}>
-                            <label htmlFor="adding">Add calories</label>
-                            <input type="number" step=".01" name="caloriesValue"/>
-                            <input type="submit" value="add calories"/>
-                        </form>
-                    </div>
-                )
-            }else{
-                return (
-                    <div key={i}>
-                        <p>Welcome do you want to start todays count?</p>
-                    </div>
-                )
-            }
+        let data = this.state.data.map((d,i) => {
+                    return(
+                        <DailyCalories 
+                            key={i} 
+                            BMI={this.calculateBMI(d.myWeight, d.myHeight)} 
+                            intake={d.caloriesGoal} 
+                            consumed={d.caloriesConsumed}
+                            user={d.userId} 
+                            fetchCalories={this.fetchCalories}
+                        />
+                    )
         })
 
         const renderCalories = this.state.foodData.map((p, idx) => {
@@ -126,7 +104,13 @@ class Calories extends Component {
         return (
             <div>
                 <h1> Hello to calories page! </h1>
-                {data[0]}
+                {this.state.newUser ? 
+                    <p>Please head over to Details page and enter your details</p> : 
+                    (this.state.uptoDate ? 
+                        data[0] : 
+                        <NewDayBtn data={this.state.data[0]} fetchCalories={this.fetchCalories} user={this.props.user.userId}/>
+                    )
+                }
 
                 <div>
                     <h2>What did you eat?</h2>

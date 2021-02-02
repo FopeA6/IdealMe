@@ -10,7 +10,7 @@ class App extends React.Component {
       currentUser: {}
     }
 
-    login = async (userData) => {
+    login = async (userData, creating) => {
       try {
           const options = {
               method: 'POST',
@@ -21,7 +21,11 @@ class App extends React.Component {
           const data = await r.json();
           if (data.err){ throw Error(data.err) }
           this.setState({ isLoggedIn: true, currentUser: data })
-          this.props.history.push('./calories')
+          if(creating){
+          this.props.history.push('./details')
+          }else{
+            this.props.history.push('./calories')
+          }
       } catch (err) {
           console.warn(`Error: ${err}`);
       }
