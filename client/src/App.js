@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import { Home, Calories, Userdetails, Recipe } from './pages';
+import { Home, Calories, Userdetails, Recipe, Progress } from './pages';
 import { NavBar, LoggedOutRoute, Register, PrivateRoute } from './components';
 import Login from './components/Login';
 
@@ -46,7 +46,8 @@ class App extends React.Component {
                   <LoggedOutRoute path='/login' isLoggedIn={this.state.isLoggedIn} component={()=> <Login login={this.login}/>} />
                   <LoggedOutRoute path='/register' isLoggedIn={this.state.isLoggedIn} component={Register} /> 
                   <PrivateRoute path='/calories' isLoggedIn={this.state.isLoggedIn} component={()=> <Calories user={this.state.currentUser}/>} />
-                  <PrivateRoute path='/Userdetails' isLoggedIn={this.state.isLoggedIn} component={()=> <Userdetails user={this.state.currentUser}/>} />
+                  <PrivateRoute path='/progress' isLoggedIn={this.state.isLoggedIn} component={()=> <Progress user={this.state.currentUser}/>} />
+                  <PrivateRoute path='/details' isLoggedIn={this.state.isLoggedIn} component={()=> <Userdetails user={this.state.currentUser}/>} />
                   <PrivateRoute path='/recipe' isLoggedIn={this.state.isLoggedIn} component={() => <Recipe user={this.state.currentUser} />} />
               </Switch>
           </main>
