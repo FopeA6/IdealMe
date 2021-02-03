@@ -5,6 +5,9 @@ import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import 'normalize.css'
 
+import 'normalize.css';
+
+
 ReactDOM.render(
     <Router>
         <App />

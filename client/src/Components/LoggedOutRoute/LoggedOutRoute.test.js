@@ -1,12 +1,11 @@
 import LoggedOutRoute from '.';
-import { shallow } from 'enzyme';
-import { component } from 'react';
+import { render, shallow } from 'enzyme';
 
 describe('LoggedOutRoute', () => {
     let component;
 
     beforeEach(() => {
-        component = shallow(<LoggedOutRoute isLoggedIn={true}/>);
+        component = shallow(<LoggedOutRoute />);
     })
 
     test('it renders', () => {
@@ -17,7 +16,7 @@ describe('LoggedOutRoute', () => {
         expect(component.find('LoggedOutRoute').exists()).toBeFalsy();
     })
 
-    test('it redirects to /habits link', () => {
+    test('it redirects to /home link', () => {
     let links = component.find('Redirect');
     expect(links).toHaveLength(0)
     })
@@ -31,4 +30,5 @@ describe('LoggedOutRoute', () => {
         let LoggedOutRoute = component.find('Route')
         expect(LoggedOutRoute).toHaveLength(1)
     })
+
 })
