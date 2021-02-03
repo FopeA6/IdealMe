@@ -23,7 +23,7 @@ font-family: 'Sansita Swashed', cursive;*/
   --neutral: #676868;
 }
 
-@media (min-width: 400px) and (max-width: 900px) {
+@media (max-width: 400px) {
 
 /* #foo {
     color: var(--main-color);
@@ -33,7 +33,7 @@ h1 {
     font-family: 'Oleo Script Swash Caps', cursive;
     color: var(--neutral);
     text-align: center;
-    /* font-size: 2rem !important; */
+    font-size: 5rem !important;
 
 }
 
@@ -41,14 +41,14 @@ h2 {
     font-family: 'Kurale', serif;
     color: var(--neutral);
     text-align: center;
-    /* font-size: 4rem; */
+    font-size: 4rem;
 }
 
 p, label, button, input, table, option {
     font-family: 'Varela Round', sans-serif; 
     color: var(--neutral);
     padding: 15px;
-    /* font-size: 3rem; */
+    font-size: 3rem;
     text-align: center;
 }
 
@@ -67,7 +67,7 @@ p, label, button, input, table, option {
     transition: all 0.2s;
     background-color: var(--light-blue);
     cursor: pointer;
-    /* font-size: 2rem; */
+    font-size: 2rem;
     margin: 5px;
   }
   
