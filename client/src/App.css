@@ -33,51 +33,109 @@ font-family: 'Sansita Swashed', cursive;*/
 h1 {
     font-family: 'Oleo Script Swash Caps', cursive;
     color: var(--neutral);
+    text-align: center;
+    /* font-size: 2rem !important; */
+
 }
 
 h2 {
     font-family: 'Kurale', serif;
     color: var(--neutral);
+    text-align: center;
+    /* font-size: 4rem; */
 }
 
-p, label {
+p, label, button, input, table, option {
     font-family: 'Varela Round', sans-serif; 
     color: var(--neutral);
+    padding: 15px;
+    /* font-size: 3rem; */
+    text-align: center;
 }
 
 
+#loginbtn, #registerbtn, #logoutbtn, #newday, .search-button {
+    font-family: 'Varela Round', sans-serif;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 2rem;
+    border: 0.17em solid var(--blue);
+    /* margin: 0 0.3em 0.3em 0; */
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
+    background-color: var(--light-blue);
+    cursor: pointer;
+    /* font-size: 2rem; */
+    margin: 5px;
+  }
+  
+  input, .search-bar {
+    
+    border: 0.17em solid var(--blue);
+    border-radius: 0.3em;
+    box-sizing: border-box;
+    font-family: 'Varela Round', sans-serif !important; 
+    padding: 5px;
+    font-size: 2rem !important;
+    width: 375px;
+    height: 80px;
+    font-size: 3rem;
+    border-radius: 0.5em;
 
-table {
-    border-collapse: collapse;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    margin-left:auto; 
-    margin-right:auto;
+  }
+  
+  button:hover, #btn:hover, #loginbtn:hover, #registerbtn:hover, #logoutbtn:hover {
+    border: 0.17em solid var(--coral);
+    background-color: var(--coral);
+    color: white;
+  }
+  
+  input:focus {
+    background-color: var(--v-light-blue);
+  }
+
+  .container {
+    text-align: center;
+    /* width: 80%; */
+    clear: both;
+  }
+  
+  .container input  {
+    width: 80%;
+    clear: both;
+    
+  }
+
+  .container1 {
+      display: block;
+      text-align: center;
+      clear: both;
+  }
+
+  .container1 input {
+    display: block;
+    width: 80%;
+    clear: both;
+    text-align-last: center;
 }
 
-thead, td {
-    background-color: var(--blue);
-    color: #ffffff;
-    text-align: left;
-    padding: 12px 15px;
+  #newday {
+      align-self: center;
+  }
+
+.recipe img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
 }
 
-/* tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-} */
-
-th {
-    background-color:  #636363;
+.recipe {
+    text-align: center;
+    font-family: 'Varela Round', sans-serif; 
+    font-size: 2.5rem;
+    color: var(--neutral)
 }
-
-tbody tr {
-    border-bottom: 1px solid #dddddd;
-}
-
-tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
-
-

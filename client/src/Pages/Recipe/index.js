@@ -35,7 +35,7 @@ const Recipe = () => {
     <div className="App">
       <h1> What do you want to eat? </h1>
       <h2>Enter a craving and we will give you some meal suggestions</h2>
-
+      <div className="container">
       <form onSubmit={getSearch} className="search-form">
         <input
           className="search-bar"
@@ -48,6 +48,8 @@ const Recipe = () => {
           Search
         </button>
       </form>
+      </div>
+      <div className="recipe">
       {recipes.map((recipe, idx) => (
         <RecipeCard
           key={idx}
@@ -59,6 +61,7 @@ const Recipe = () => {
           url={recipe.recipe.url}
         />
       ))}
+      </div>
     </div>
   );
 };
