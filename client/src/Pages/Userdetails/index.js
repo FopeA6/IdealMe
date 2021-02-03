@@ -97,6 +97,7 @@ class Userdetails extends Component {
         return (
             <section>
                 <h1>View your details here</h1>
+                <div className="container1">
                 <form id="userDetails" onSubmit={this.addDetails}>
                     <label htmlFor="height">Height in inches</label>
                     <input type="number" step=".01" name="height" placeholder="E.g. 70.1"/>
@@ -131,6 +132,7 @@ class Userdetails extends Component {
 
                     <input type="submit" value="add details" />
                 </form>
+                </div>
             </section>
         )
         }

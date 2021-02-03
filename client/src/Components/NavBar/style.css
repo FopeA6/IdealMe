@@ -1,3 +1,4 @@
+@media (max-width: 400px) {
 .nav,
 #logoutbtn {
   text-decoration: none;
@@ -33,4 +34,5 @@
 
 .menuIcon {
   cursor: pointer;
+}
 }

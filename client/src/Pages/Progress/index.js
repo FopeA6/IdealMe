@@ -87,11 +87,14 @@ class Progress extends React.Component {
             title: {
               display: this.props.displayTitle,
               text: "Calories Watcher",
-              fontSize: 25,
+              fontSize: 40,
             },
             legend: {
               display: this.props.displayLegend,
               position: this.props.legendPosition,
+              labels: {
+                fontSize: 36,
+            }
             },
             scales: {
               yAxes: [{
@@ -113,11 +116,14 @@ class Progress extends React.Component {
             title: {
               display: this.props.displayTitle,
               text: "Weight Watcher",
-              fontSize: 25,
+              fontSize: 40,
             },
             legend: {
               display: this.props.displayLegend,
               position: this.props.legendPosition,
+              labels: {
+                fontSize: 36,
+            }
             },
             // scales: {
             //   yAxes: [{

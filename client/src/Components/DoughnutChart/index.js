@@ -24,11 +24,14 @@ class DoughnutChart extends Component {
             title: {
               display: this.props.displayTitle,
               text: "Nutritional breakdown",
-              fontSize: 25,
+              fontSize: 40,
             },
             legend: {
               display: this.props.displayLegend,
               position: this.props.legendPosition,
+              labels: {
+                fontSize: 36,
+            }
             },
           }}
         />

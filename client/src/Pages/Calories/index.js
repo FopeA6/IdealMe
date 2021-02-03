@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DoughnutChart from "../../Components/DoughnutChart";
 import DailyCalories from "../../Components/DailyCalories";
 import NewDayBtn from "../../Components/NewDayBtn";
+import './style.css'
 
 class Calories extends Component {
   state = {
@@ -89,6 +90,7 @@ class Calories extends Component {
         datasets: [
           {
             label: "Gramms",
+            
             data: [totalcarb, totalprotein, totalfat],
             backgroundColor: [
               "rgba(255,25,55,0.6)",
@@ -131,7 +133,7 @@ class Calories extends Component {
     //calculate bmi, average calories consumption, search api, add today btn
     return (
       <div>
-        <h1> Hello to calories page! </h1>
+        <h1> Tracking your daily calories! </h1>
         {this.state.newUser ? (
           <p>Please head over to Details page and enter your details</p>
         ) : this.state.uptoDate ? (
@@ -150,6 +152,7 @@ class Calories extends Component {
             Enter the food you had here and we tell you how much calories you
             had.
           </p>
+          <div className="container">
           <form className="search-form" onSubmit={this.getSearch}>
             <input
               className="search-bar"
@@ -161,8 +164,9 @@ class Calories extends Component {
             />
             <input className="search-button" type="submit" value="Search" />
           </form>
+          </div>
           <div>
-            <h3>Your food has the following nutritional value:</h3>
+            <h2>Your food has the following nutritional value:</h2>
             <p>Total calories: {this.state.totalCal}</p>
             <DoughnutChart chartdata={this.state.chartData} />
 
@@ -172,7 +176,7 @@ class Calories extends Component {
                 <tr>
                   <th>Name</th>
                   <th>Total calories</th>
-                  <th>Carbohydrates</th>
+                  <th>Carbs</th>
                   <th>Protein</th>
                   <th>Fat</th>
                   <th>Serving size</th>
