@@ -23,6 +23,8 @@ font-family: 'Sansita Swashed', cursive;*/
   --neutral: #676868;
 }
 
+@media (min-width: 400px) and (max-width: 900px) {
+
 /* #foo {
     color: var(--main-color);
 } */
@@ -135,4 +137,6 @@ p, label, button, input, table, option {
     font-family: 'Varela Round', sans-serif; 
     font-size: 2.5rem;
     color: var(--neutral)
+}
+
 }
