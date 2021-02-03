@@ -1,30 +1,38 @@
-:root {
-  --coral:#ff7487;
-  --blue: #92f9fb;
-  --pink: #ff88fe;
-  --light-blue: #95e8e7;
-  --light-pink: #fbc6e5;
-  --v-light-blue: #cce9e9;
-  --neutral: #676868;
+@media (max-width: 400px) {
+.nav,
+#logoutbtn {
+  text-decoration: none;
+  background-color: var(--v-light-blue);
+  color: var(--coral);
+  margin: 0;
+  padding: 15px 0;
+  text-align: center;
+  width: 100%;
+  border: none;
 }
 
-.nav {
-    text-decoration: none;
-    background-color:  
-    var(--v-light-blue);
-    color: var(--coral);
-    border-radius: 0.3rem;
-    margin-right: 50px;  
-    text-align: center;
-    padding: 8px;
-  }
-  
-  nav {
-    margin: 40px;
-    text-align: right;
-    border: 2px solid white;
-    padding: 20px;
-    background-color: 
-    var(--blue);
-    border-radius: 20px;
-  }
+.nav:hover,
+#logoutbtn:hover {
+  background-color: gray;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.topnav {
+  border: 1px solid black;
+}
+
+.allShow {
+  display: flex;
+  padding: 0 20px;
+  justify-content: space-between;
+}
+
+.menuIcon {
+  cursor: pointer;
+}
+}
