@@ -21,7 +21,7 @@ const NavBar = ({ isLoggedIn, logout }) => {
     return (
         <nav className='navbar'>
             { !isLoggedIn ?
-                null
+                <></>
                 :
                 <div className="topnav">
                     <div className="allShow">
