@@ -3,6 +3,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import { Home, Calories, Userdetails, Recipe, Progress } from './pages';
 import { NavBar, LoggedOutRoute, Register, PrivateRoute } from './components';
 import Login from './components/Login';
+import './App.css'
 
 class App extends React.Component {
     state = {

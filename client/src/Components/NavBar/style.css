@@ -1,0 +1,30 @@
+:root {
+  --coral:#ff7487;
+  --blue: #92f9fb;
+  --pink: #ff88fe;
+  --light-blue: #95e8e7;
+  --light-pink: #fbc6e5;
+  --v-light-blue: #cce9e9;
+  --neutral: #676868;
+}
+
+.nav {
+    text-decoration: none;
+    background-color:  
+    var(--v-light-blue);
+    color: var(--coral);
+    border-radius: 0.3rem;
+    margin-right: 50px;  
+    text-align: center;
+    padding: 8px;
+  }
+  
+  nav {
+    margin: 40px;
+    text-align: right;
+    border: 2px solid white;
+    padding: 20px;
+    background-color: 
+    var(--blue);
+    border-radius: 20px;
+  }
