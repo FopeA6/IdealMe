@@ -119,15 +119,15 @@ class Progress extends React.Component {
               display: this.props.displayLegend,
               position: this.props.legendPosition,
             },
-            scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true,
-                      min: 0,
-                      max: 200    
-                  }
-                }]
-             }
+            // scales: {
+            //   yAxes: [{
+            //       ticks: {
+            //           beginAtZero:true,
+            //           min: 70,
+            //           max: 200    
+            //       }
+            //     }]
+            //  }
           }}
         />
       </div>
