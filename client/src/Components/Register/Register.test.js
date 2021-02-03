@@ -61,4 +61,8 @@ describe('Register', () => {
     form.simulate("submit", fakeEvent);
     expect(registerMock).toHaveBeenNthCalledWith(1, 'bob', 'enter', 'enter');
 })
+
+test('register function', () => {
+    
+})
 })

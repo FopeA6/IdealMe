@@ -54,7 +54,8 @@ describe('Login', () => {
         expect(onSubmitFn).toHaveBeenCalledTimes(1)
 })
 
+
 test('it disables submit button on incomplete form submission', () => {
-    
+    expect(component.to.contain(<input type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled'} disabled={this.formIncomplete()} value="Login" />)).to.Equal(true)
 })
 })

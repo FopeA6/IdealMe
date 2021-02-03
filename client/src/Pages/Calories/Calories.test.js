@@ -1,4 +1,5 @@
 import Calories from '.';
+import { shallow } from 'enzyme';
 
 describe('Calories', () => {
     let component

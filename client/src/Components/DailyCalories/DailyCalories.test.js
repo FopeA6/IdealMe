@@ -1,10 +1,13 @@
 import DailyCalories from '.';
+import { shallow } from 'enzyme';
 
 describe('DailyCalories', () => {
     let component, stubProps, paragraph, form, label
+    //const fakeEvent = { preventDefault: () => "do nothing" };
     
     beforeEach(() => {
-        component = shallow(<DailyCalories />)
+        fetchMock = jest.fn();
+        component = shallow(<DailyCalories key={1} BMI={26} intake={2500} consumed={100} user={2} fetchCalories={fetchMock}/>)
     })
 
 test('it renders', () => {
@@ -13,12 +16,6 @@ test('it renders', () => {
 
 test('it is able to find a html element', () => {
     expect(component.find('p')).toHaveLength(3)
-})
-
-test('it should render BMI, intake and consumed inside the p tags', () => {
-    paragraph = component.find('p')
-    expect(paragraph.text(1)).toContain(stubProps.BMI)
-
 })
 
 test('it renders a form', () => {
@@ -33,14 +30,6 @@ test('the form has 1 number inputs', () => {
     expect(input.first().props().type).toBe('number');
 })
 
-test('it renders an input with label', () => {
-    component = shallow(<input type="number" step=".01" name="caloriesValue" />)
-    label = component.find('label');
-    expect(label).toHaveLength(1)
-    expect(label.prop('htmlFor')).toEqual("adding")
-    expect(label.text()).toEqual("Add calories")
-})
-
 test('it calls onSubmit prop function when form is submitted', () => {
     const onSubmitFn = jest.fn();
     component = shallow(<DailyCalories onSubmit={onSubmitFn} />)
@@ -48,13 +37,18 @@ test('it calls onSubmit prop function when form is submitted', () => {
     form.stimulate('submit')
     expect(onSubmitFn).toHaveBeenCalledTimes(1)
 })
-
-// lines 5 -22
+// test('it calls on addCalories prop on form submission', () => {
+//     form = component.find('form');
+//     component.setProps({key="{1}", BMI="{26}", intake="{2500}", consumed="{100}", user="{2}", fetchCalories="{fetchmock}"});
+//     form.simulate("submit", fakeEvent);
+//     expect(fetchMock).toHaveBeenNthCalledWith(1, 'bob', 'enter');
+// })
+// lines 30
 test('the addCalories function', async() => {
     const instance = component.instance
     jest.spyOn(instance, 'addCalories');
     await instance.addCalories();
     console.log(instance['state']);
-    expect(instance['state'])
+    expect(instance['state'].fetchCalories)
 })
 })
