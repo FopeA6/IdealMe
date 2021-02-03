@@ -7,7 +7,7 @@ class Register extends Component {
         name: "",
         email: "",
         password: "",
-        passwordConfirmation: ""
+        //passwordConfirmation: ""
     }
 
     handleInput = e => this.setState({ [e.target.name]: e.target.value });

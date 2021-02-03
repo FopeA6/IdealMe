@@ -1,4 +1,5 @@
 import Home from '.';
+
 describe('Home', () => {
     let component, initState, newState, initProps;
     let stateStub = {
@@ -13,10 +14,10 @@ describe('Home', () => {
         expect(component.find('div')).toHaveLength(8)
         })
     test('it renders the title', () => {
-        expect(component.find('h1').text()).toContain('Welcome to iHabit');
+        expect(component.find('h1').text()).toContain('Welcome to idealMe');
         });
     test('it renders a sub-paragraph', () => {
-        expect(component.find('p').text()).toContain('Keep track of your habits here on a daily or weekly basis.');
+        expect(component.find('p').text()).toContain('Here to help you become the person you want to see in the mirror');
     })
     test('it has 2 buttons', () => {
         expect(component.find('button')).toHaveLength(2)
@@ -26,8 +27,6 @@ describe('Home', () => {
         expect (links).toHaveLength(1)
     })
     
-    
-
     test('it setState from showRegisterBox onClick', () => {
         let registerbtn = component.find('#registerbtn')
         initProps = component.setProps({
@@ -36,6 +35,17 @@ describe('Home', () => {
         })
         component.find('#registerbtn').simulate('click')
         newState = registerbtn.simulate('click')
+        expect(newState).not.toEqual(stateStub)
+    })
+
+    test('it setState from showLoginBox onClick', () => {
+        let loginbtn = component.find('#loginbtn')
+        initProps = component.setProps({
+            isRegisterOpen: false, 
+            isLoginOpen: true
+        })
+        component.find('#loginbtn').simulate('click')
+        newState = loginbtn.simulate('click')
         expect(newState).not.toEqual(stateStub)
     })
 });

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Login, Register } from '../../components';
+import './style.css'
 
 
 class Home extends Component {
@@ -24,14 +25,14 @@ class Home extends Component {
         return (
             <div>
                 
-                <div id="homeLeft" className="home">
+                <div id="hometop" className="home">
                     <div className="centered">
                         <h1>Welcome to idealMe</h1>
                         <p>Here to help you become the person you want to see in the mirror.</p>
                     </div>
                 </div>
 
-        <div id="homeRight" className="home">
+        <div id="homebottom" className="home">
             <div  className="centered">
                 <div className="container">
                     <div className="box-controller">

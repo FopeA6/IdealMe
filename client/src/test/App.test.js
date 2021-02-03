@@ -3,14 +3,14 @@ import { shallow } from 'enzyme';
 
 fetch = jest.fn(() =>Promise.resolve({
     json: () => Promise.resolve({
-        userId: 5,
-        userName: "MrAwesome"
+        userId: 4,
+        userName: "JourneytoHealth"
     })
 }))
 
 describe('App', () => {
     let wrapper, component;
-    let stateStub = {
+    let state = {
         isLoggedIn: false,
         currentUser: {}
     }
@@ -42,7 +42,7 @@ describe('App', () => {
 
         expect(router.length).toBe(1)
         expect(logRouter.length).toBe(2)
-        expect(privRouter.length).toBe(2)
+        expect(privRouter.length).toBe(3)
     });
 
     test('path of the routes', ()=>{
@@ -51,14 +51,16 @@ describe('App', () => {
         let firstLogRouter = component.find('LoggedOutRoute').first();
         let secondLogRouter = component.find('LoggedOutRoute').last();
         let firstPrivRouter = component.find('PrivateRoute').first();
-        let secondPrivRouter = component.find('PrivateRoute').last();
+        let secondPrivRouter = component.find('PrivateRoute').second();
+        let thirdPrivRouter = component.find('PrivateRoute').last();
 
         expect(rswitch.prop('id')).toEqual('navPaths');
         expect(router.prop('path')).toEqual('/');
         expect(firstLogRouter.prop('path')).toEqual('/login');
         expect(secondLogRouter.prop('path')).toEqual('/register');
-        expect(firstPrivRouter.prop('path')).toEqual('/habits');
-        expect(secondPrivRouter.prop('path')).toEqual('/statistics');
+        expect(firstPrivRouter.prop('path')).toEqual('/calories');
+        expect(secondPrivRouter.prop('path')).toEqual('/Userdetails');
+        expect(thirdPrivRouter.prop('path')).toEqual('/recipe');
     })
 
     test('check logout', ()=>{
@@ -87,5 +89,11 @@ describe('App', () => {
     
     test('it renders links to PrivateRoute Page', () => {
         let links = component.find('PrivateRoute');
-        expect(links).toHaveLength(2)
+        expect(links).toHaveLength(3)
         })
+
+    test('it has a state', () => {
+        const instance = component.instance()
+        expect(instance['state']).toEqual( {isLoggedIn: false,
+            currentUser: {}})
+    })

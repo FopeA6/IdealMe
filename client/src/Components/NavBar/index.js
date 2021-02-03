@@ -41,4 +41,5 @@ const NavBar = ({ isLoggedIn, logout }) => {
     );
 }
 
+
 export default NavBar;

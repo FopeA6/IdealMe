@@ -12,16 +12,15 @@ describe('PrivateRoute', () => {
     test('it renders', () => {
         expect(component.find('Route')).toHaveLength(1)
     })
-    test('it passes rest to Route component', () => {
-        const { component } = setup({path: '/scarif'})
-        expect(component.find(Route).prop('path')).toBe('/scarif');
+
+    test('The props renders accordingly', () => {
+        const loginComponent = shallow(<PrivateRoute isLoggedIn={true}/>)
+        loginComponent.setProps({isLoggedIn: true})
+        expect(loginComponent).toHaveLength(1)
     })
 
-    test('private path renders a component when authentication is true', () => {
-
-    })
-    test('it redirects unauthenticated users to login', () => {
-        
-    })
-
+    test('it redirects to /login link', () => {
+        let links = component.find('Redirect');
+        expect(links).toHaveLength(0)
+        })
 })
