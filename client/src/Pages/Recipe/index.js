@@ -42,6 +42,7 @@ const Recipe = () => {
           type="text"
           value={search}
           onChange={updateSearch}
+          placeholder="E.g. Banana"
         />
         <button className="search-button" type="submit">
           Search

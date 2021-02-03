@@ -157,6 +157,7 @@ class Calories extends Component {
               value={this.state.search}
               onChange={this.updateSearch}
               type="text"
+              placeholder="E.g. one apple and peanut butter"
             />
             <input className="search-button" type="submit" value="Search" />
           </form>

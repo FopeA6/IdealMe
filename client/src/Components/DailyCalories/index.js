@@ -28,8 +28,7 @@ class DailyCalories extends React.Component{
                 <p>Daily Calories Intake: {this.props.intake}</p>
                 <p>Calories Consumed: {this.props.consumed}</p>
                 <form onSubmit={(e)=> this.addCalories(e)}>
-                    <label htmlFor="adding">Add calories</label>
-                    <input type="number" step=".01" name="caloriesValue"/>
+                    <input type="number" step=".01" name="caloriesValue" placeholder="E.g. 60"/>
                     <input type="submit" value="add calories"/>
                 </form>
             </div>
