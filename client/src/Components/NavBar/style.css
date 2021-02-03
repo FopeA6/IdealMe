@@ -1,32 +1,30 @@
-.navbar {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: orange;
-  border-right: 10px solid rgb(216, 216, 216);
-  height: 100vh;
-  width: 100px;
-  font-family: poppins, serif;
+:root {
+  --coral:#ff7487;
+  --blue: #92f9fb;
+  --pink: #ff88fe;
+  --light-blue: #95e8e7;
+  --light-pink: #fbc6e5;
+  --v-light-blue: #cce9e9;
+  --neutral: #676868;
 }
 
-.navOptions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 60%;
-  padding-top: 10px;
-}
-
-.image {
-  width: 70%;
-  cursor: pointer;
-}
-
-.image.hover {
-  scale: 1.1;
-}
-
-.icon {
-  width: 100%;
-}
+.nav {
+    text-decoration: none;
+    background-color:  
+    var(--v-light-blue);
+    color: var(--coral);
+    border-radius: 0.3rem;
+    margin-right: 50px;  
+    text-align: center;
+    padding: 8px;
+  }
+  
+  nav {
+    margin: 40px;
+    text-align: right;
+    border: 2px solid white;
+    padding: 20px;
+    background-color: 
+    var(--blue);
+    border-radius: 20px;
+  }

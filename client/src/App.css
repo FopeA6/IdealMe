@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Kurale&family=Monoton&family=Raleway:wght@300;400;600&family=Varela+Round&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps:wght@400;700&display=swap');
+
+/* font-family: 'Julius Sans One', sans-serif;
+font-family: 'Kurale', serif;
+font-family: 'Monoton', cursive;
+font-family: 'Raleway', sans-serif;
+font-family: 'Varela Round', sans-serif; 
+font-family: 'Sansita Swashed', cursive;*/
+
+
+:root {
+    --coral:#ff7487;
+    --blue: #92f9fb;
+    --pink: #ff88fe;
+    --light-blue: #95e8e7;
+    --light-pink: #fbc6e5;
+    --v-light-blue: #cce9e9;
+    --neutral: #676868;
+}
+
+/* #foo {
+    color: var(--main-color);
+} */
+
+
+
+h1 {
+    font-family: 'Oleo Script Swash Caps', cursive;
+    color: var(--neutral);
+}
+
+h2 {
+    font-family: 'Kurale', serif;
+    color: var(--neutral);
+}
+
+p, label {
+    font-family: 'Varela Round', sans-serif; 
+    color: var(--neutral);
+}
+
+
+
+table {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+thead, td {
+    background-color: var(--blue);
+    color: #ffffff;
+    text-align: left;
+    padding: 12px 15px;
+}
+
+/* tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+} */
+
+th {
+    background-color:  #636363;
+}
+
+tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+

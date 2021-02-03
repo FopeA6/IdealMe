@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import HomeIcon from './HomeIcon.png';
-import PieChartIcon from './PieChartIcon.png';
-import RecipeIcon from './RecipeIcon.png';
-import StatisticsIcon from './StatisticsIcon.png';
-// import './style.css'
+import './style.css'
 
     const NavBar = ({ isLoggedIn, logout }) => {
     return (

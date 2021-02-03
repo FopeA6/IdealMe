@@ -37,10 +37,12 @@ def welcome():
 def all_users():
     db = get_db()
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM calories")
+    cursor.execute("SELECT * FROM users")
     users = cursor.fetchall()
+    colname = [ d[0] for d in cursor.description ]
+    user_dictionary = [ dict(zip(colname, r)) for r in users ]
     #print(users)
-    return jsonify({"users": users})
+    return jsonify(user_dictionary)
 
 #user height in meters
 #user weight in kg
@@ -147,7 +149,7 @@ def my_progress(id):
     #    WHERE users.name = (?)
     #    ORDER BY calories.id DESC;"""
     #    , (name,))
-    cursor.execute("SELECT calories.myWeight, calories.today FROM calories WHERE userId = ?;", (id,))
+    cursor.execute("SELECT calories.myWeight, calories.today, calories.caloriesConsumed, calories.caloriesGoal FROM calories WHERE userId = ?;", (id,))
     user_date = cursor.fetchall()
     if len(user_date) > 0:
         return jsonify(user_date)
@@ -173,6 +175,7 @@ def calories_count(id):
     db.commit()
     print(calories_consumed)
     return jsonify({"msg": "calories have to added"})
+
 
 @server.route('/update', methods=['POST'])
 def update_data():
