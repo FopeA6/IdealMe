@@ -1,9 +1,20 @@
 import Register from '.';
 import { shallow } from 'enzyme';
-import { component } from 'react';
 
 describe('Register', () => {
-    let component, form, registerMock;
+    let component;
+
+    beforeEach(() => {
+        component = shallow(<Register />)
+    })
+
+    test('it renders', () => {
+        expect(component.find('div')).toHaveLength(6)
+    })
+})
+
+describe('Register', () => {
+    let component, form, registerMock, state;
     const fakeEvent = { preventDefault: () => "do nothing" };
 
     beforeEach(() => {
@@ -16,7 +27,10 @@ describe('Register', () => {
 
     test('it has a state', () => {
         const instance = component.instance()
-        expect(instance['state']).toEqual({"username": "", "password": "", "passwordConfirmation": ""})
+        expect(instance['state']).toEqual({name: "",
+        email: "",
+        password: "",
+        passwordConfirmation: ""})
     })
 
     test('it renders a form', () => {

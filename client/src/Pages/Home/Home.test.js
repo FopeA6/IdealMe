@@ -37,4 +37,15 @@ describe('Home', () => {
         newState = registerbtn.simulate('click')
         expect(newState).not.toEqual(stateStub)
     })
+
+    test('it setState from showLoginBox onClick', () => {
+        let loginbtn = component.find('#loginbtn')
+        initProps = component.setProps({
+            isRegisterOpen: false, 
+            isLoginOpen: true
+        })
+        component.find('#loginbtn').simulate('click')
+        newState = loginbtn.simulate('click')
+        expect(newState).not.toEqual(stateStub)
+    })
 });
