@@ -1,5 +1,5 @@
 import LoggedOutRoute from '.';
-import { shallow } from 'enzyme';
+import { render, shallow } from 'enzyme';
 
 describe('LoggedOutRoute', () => {
     let component;
@@ -30,17 +30,5 @@ describe('LoggedOutRoute', () => {
         let LoggedOutRoute = component.find('Route')
         expect(LoggedOutRoute).toHaveLength(1)
     })
-})
 
-test('The props for isLoggedIn renders accordingly', () => {
-    const loginComponent = shallow(<LoggedOutRoute isLoggedIn={true}/>)
-    
-    expect(loginComponent).toBeTruthy
 })
-
-test('The props for isLoggedIn renders accordingly', () => {
-    const loginComponent = shallow(<LoggedOutRoute isLoggedIn={false}/>)
-    loginComponent.setProps({isLoggedIn: false})
-    expect(loginComponent).toBeFalsy
-})
-

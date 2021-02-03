@@ -2,9 +2,10 @@ import Calories from '.';
 
 describe('Calories', () => {
     let component
-    
+    let getSearchMock = jest.fn();
+
     beforeEach(() => {
-        component = shallow(<Calories />)
+        component = shallow(<Calories getSearch = {getSearchMock}/>)
     })
 
 test('it renders', () => {
@@ -30,10 +31,22 @@ test('it has a h3', () => {
     expect(component.find('h3').text()).toContain('Your food has the following nutritional value:');
 })
 
+test('it has a table', () => {
+    expect(component.find('table')).toHaveLength(1)
+})
+
+test('able to find the following html elements', () => {
+    expect(component.find('th')).toHaveLength(6);
+    expect(component.find('caption')).toHaveLength(1);
+    expect(component.find('caption').html()).toContain('Nutritional Values')
+})
 test('it has another paragraph', () => {
     expect(component.find('p').text()).toContain('Total calories:');
 })
 
+test('it has an onSubmit', () => {
+    component.find('form').stimulate('submit', { preventDefault: jest.fn() });
+})
 test('it has a state', () => {
     const instance = component.instance()
     expect(instance['state']).toEqual({ data: [],
@@ -55,5 +68,14 @@ test('lifecycle method should have been called', () => {
     }
     component = shallow(<Hi />)
     expect(componentDidMount.mock.calls.length).toBe(1)
+})
+test('it should call onChange prop', () => {
+    form = component.find('form')
+    const textInput = form.find('input').first()
+    const initState = component.state('search')
+    textInput.stimulate('change', { target: { value: 'Banana' } })
+    const newState = component.state('search')
+    expect(newState).not.toEqual(initState)
+
 })
 })
