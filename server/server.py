@@ -147,7 +147,7 @@ def my_progress(id):
     #    WHERE users.name = (?)
     #    ORDER BY calories.id DESC;"""
     #    , (name,))
-    cursor.execute("SELECT calories.myWeight, calories.today FROM calories WHERE userId = ?;", (id,))
+    cursor.execute("SELECT calories.myWeight, calories.today, calories.caloriesConsumed, calories.caloriesGoal FROM calories WHERE userId = ?;", (id,))
     user_date = cursor.fetchall()
     if len(user_date) > 0:
         return jsonify(user_date)

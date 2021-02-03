@@ -99,13 +99,13 @@ class Userdetails extends Component {
                 <h1>View your details here</h1>
                 <form id="userDetails" onSubmit={this.addDetails}>
                     <label htmlFor="height">Height in inches</label>
-                    <input type="number" step=".01" name="height" />
+                    <input type="number" step=".01" name="height" placeholder="E.g. 70.1"/>
 
                     <label htmlFor="weight">Weight in lbs</label>
-                    <input type="number" step=".01" name="weight" />
+                    <input type="number" step=".01" name="weight" placeholder="E.g. 170.25"/>
                     
                     <label htmlFor="age">Age</label>
-                    <input type="number" name="age" />
+                    <input type="number" name="age" placeholder="E.g. 25"/>
                     
                     <label htmlFor="gender">Gender:</label>
                     <select id="gender" name="genderSelect">
