@@ -117,17 +117,3 @@ describe('App', () => {
     })
 })
 
-//     describe('App', () => {
-//         let component;
-//         let state = {
-//             isLoggedIn: false,
-//             currentUser: {}
-//         }
-    
-//         beforeEach(() => {
-//             component = shallow(<App.WrappedComponent history={{push: (p)=>{}}} 
-//             state = {{isLoggedIn: false,
-//             currentUser: {}}} />)
-//         })
-//     })
-// })
