@@ -1,14 +1,32 @@
 import Userdetails from '.';
 import { shallow } from 'enzyme';
 
+fetch = jest.fn(() => Promise.resolve({
+    json: () => Promise.resolve([
+        {
+            data: 0
+        }
+    ])
+}))
+
 describe('userdetails', () => {
     let component, form, input
-    let stateStub = {
-        data: []
-    }
-    let addDetailsMock = jest.fn();
+    
+
     beforeEach(() => {
-        component = shallow(<Userdetails.WrappedComponent addDetails={addDetailsMock}/>)
+        component = shallow(<Userdetails.WrappedComponent 
+            data={{
+                height: 72.2,
+                weight: 176.37,
+                age: 25,
+                fitness: "Not Active",
+                caloriesGoal: "Maintain",
+                caloriesConsumed:0,
+                today: "04/02/2021",
+                user: 2
+             }} 
+             />)
+             
     })
 
 test('it renders', () => {
@@ -47,8 +65,9 @@ test('the fetchDetails function', async()=>{
     const instance = component.instance()
     jest.spyOn(instance, 'fetchDetails');
     await instance.fetchDetails();
-    console.log(instance['state']);
     expect(instance['state'].data);
+    expect(instance.fetchDetails).toHaveBeenCalledTimes(1);
+  
 });
 
 // add details test
