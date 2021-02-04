@@ -15,8 +15,6 @@ class Progress extends React.Component {
     legendPosition: "bottom",
   };
   
-
-
   componentDidMount(){
       this.fetchData();
   }
@@ -63,7 +61,7 @@ class Progress extends React.Component {
                 "rgba(34,255,255,0.6)"
               ],
               borderColor: "rgba(0, 204, 204,0.9)",
-              //lineTension:0
+              lineTension:0
             },
             {
               label: "Calories Goal",
@@ -81,10 +79,7 @@ class Progress extends React.Component {
       <div className="chart">
         <Line
           data={this.state.caloriesdata}
-          // width={100}
-          // height={50}
           options={{
-            // maintainAspectRatio: false
             title: {
               display: this.props.displayTitle,
               text: "Calories Watcher",
@@ -110,10 +105,7 @@ class Progress extends React.Component {
         />
         <Line
           data={this.state.chartdata}
-          // width={100}
-          // height={50}
           options={{
-            // maintainAspectRatio: false
             title: {
               display: this.props.displayTitle,
               text: "Weight Watcher",
@@ -125,16 +117,7 @@ class Progress extends React.Component {
               labels: {
                 fontSize: 20,
             }
-            },
-            // scales: {
-            //   yAxes: [{
-            //       ticks: {
-            //           beginAtZero:true,
-            //           min: 70,
-            //           max: 200    
-            //       }
-            //     }]
-            //  }
+            }
           }}
         />
       </div>

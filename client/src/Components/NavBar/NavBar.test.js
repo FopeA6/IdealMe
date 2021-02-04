@@ -69,14 +69,16 @@ test('NavLinks paths 4', () => {
 
 test('it should handle a click event', () => {
     const menuIcon = wrapper.find('.menuIcon')
-    wrapper.find('.menuIcon').stimulate("click");
-    expect(wraper.state("active")).toBeTruthy()
+    wrapper.find('.menuIcon').simulate("click");
+    const pro2 = wrapper.props()
+    //console.log(pro['children'].props.children[1].props.style.display)
+    expect(pro2['children'].props.children[1].props.style.display).toBe("flex")
 })
 
 
-test('onClick of the menuIcon, the menu opens', () => {
+// test('onClick of the menuIcon, the menu opens', () => {
 
-})
+// })
 
 
 })

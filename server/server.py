@@ -44,8 +44,8 @@ def all_users():
     #print(users)
     return jsonify(user_dictionary)
 
-#user height in meters
-#user weight in kg
+#user height in inches
+#user weight in lbs
 #BMI = kg/m(sqared2)
 
 @server.route('/auth/register', methods=['POST'])
