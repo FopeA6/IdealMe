@@ -1,7 +1,7 @@
 import NewDayBtn from '.';
 import { shallow } from 'enzyme';
 
-let fetch = jest.fn(()=> Promise.resolve({
+fetch = jest.fn(()=> Promise.resolve({
     json: ()=> Promise.resolve([
         {
             data: 0,
@@ -12,10 +12,21 @@ let fetch = jest.fn(()=> Promise.resolve({
 }))
 
 describe('NewDayBtn', () => {
-    let component, button
+    let component, button, mocktbn
 
 beforeEach(() => {
-    component = shallow(<NewDayBtn />)
+    component = shallow(<NewDayBtn 
+        data={{
+            myHeight: 72.2,
+            myWeight: 176.37,
+            age:25,
+            fitnessLevel: "Not Active",
+            caloriesGoal: "Maintain"
+        }}
+        fetchCalories={mocktbn}
+        user={3}
+    />)
+    mocktbn = jest.fn();
 });
 
 test('it renders', () => {
@@ -31,7 +42,7 @@ test('it renders a button', () => {
 })
 test('it calls addNewDay on click', () => {
     button = component.find('button');
-    expect(component.find('button').text()).toEqual('+')
+    expect(component.find('button').text()).toEqual('Yes!')
 
 })
 
@@ -43,12 +54,13 @@ describe('NewDayBtn functions', () => {
         component = shallow(<NewDayBtn data={0} fetchCalories = {fetchMock} user={2} />)
     })
 })
-test('addNewDay function', () => {
+test('addNewDay function', async() => {
     const instance = component.instance()
     jest.spyOn(instance, 'addNewDay')
-    jest.spyOn(instance, 'fetchMock')
-    instance.addNewDay();
-    expect(instance.fetchMock).toHaveBeenCalledTimes(1)
+    jest.spyOn(instance['props'], 'fetchCalories')
+    await instance.addNewDay();
+
+    expect(instance['props'].fetchCalories).toHaveBeenCalledTimes(1)
 })
 
 })
