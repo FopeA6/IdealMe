@@ -4,7 +4,7 @@
 
 A calorie tracking app to allow users to be the person they want to see in the mirror.
 
-![idealMe](https://)
+![idealMe](https://github.com/rajtandel21/IdealMe/blob/dev/idealme.gif)
 
 To visit the website click [here](https://)
 
