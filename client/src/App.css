@@ -23,7 +23,7 @@ font-family: 'Sansita Swashed', cursive;*/
   --neutral: #676868;
 }
 
-@media (max-width: 400px) {
+/* @media (min-width: 200px) and (max-width: 400px) { */
 
 /* #foo {
     color: var(--main-color);
@@ -33,7 +33,7 @@ h1 {
     font-family: 'Oleo Script Swash Caps', cursive;
     color: var(--neutral);
     text-align: center;
-    font-size: 5rem !important;
+    font-size: 3rem !important;
 
 }
 
@@ -41,23 +41,23 @@ h2 {
     font-family: 'Kurale', serif;
     color: var(--neutral);
     text-align: center;
-    font-size: 4rem;
+    font-size: 2rem;
 }
 
 p, label, button, input, table, option {
     font-family: 'Varela Round', sans-serif; 
     color: var(--neutral);
     padding: 15px;
-    font-size: 3rem;
+    font-size: 1.2rem;
     text-align: center;
 }
 
 
-#loginbtn, #registerbtn, #logoutbtn, #newday, .search-button {
+#loginbtn, #registerbtn, #logoutbtn, #newday, .search-button, a {
     font-family: 'Varela Round', sans-serif;
     text-transform: uppercase;
     display: inline-block;
-    padding: 2rem;
+    padding: 1rem;
     border: 0.17em solid var(--blue);
     /* margin: 0 0.3em 0.3em 0; */
     border-radius: 0.5em;
@@ -67,7 +67,7 @@ p, label, button, input, table, option {
     transition: all 0.2s;
     background-color: var(--light-blue);
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1rem;
     margin: 5px;
   }
   
@@ -78,15 +78,14 @@ p, label, button, input, table, option {
     box-sizing: border-box;
     font-family: 'Varela Round', sans-serif !important; 
     padding: 5px;
-    font-size: 2rem !important;
+    font-size: 1rem !important;
     width: 375px;
-    height: 80px;
-    font-size: 3rem;
+    height: 60px;
     border-radius: 0.5em;
 
   }
   
-  button:hover, #btn:hover, #loginbtn:hover, #registerbtn:hover, #logoutbtn:hover {
+  button:hover, #btn:hover, #loginbtn:hover, #registerbtn:hover, #logoutbtn:hover, a:hover, #newday:hover, .search-button input:hover{
     border: 0.17em solid var(--coral);
     background-color: var(--coral);
     color: white;
@@ -122,7 +121,10 @@ p, label, button, input, table, option {
 }
 
   #newday {
-      align-self: center;
+      display: block;
+      margin: auto;
+      border-radius: 50%;
+      padding: 45px;
   }
 
 .recipe img {
@@ -130,13 +132,49 @@ p, label, button, input, table, option {
     margin-left: auto;
     margin-right: auto;
     border-radius: 20px;
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
+    
+    
+}
+
+a {
+    text-decoration: none;
+    color: var(--neutral);
+    
+    
+}
+.search-button button {
+    background-color: var(--light-blue)
 }
 
 .recipe {
     text-align: center;
     font-family: 'Varela Round', sans-serif; 
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     color: var(--neutral)
 }
 
+#appleicon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+#quote {
+    background-color: var(--v-light-blue);
+    margin: 10px;
+    padding: 15px;
+    border-radius: 20px;
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
+    
+}
+
+
+#recipecard {
+    border: 0.17em solid var(--blue);
+    border-radius: 20px;
+    margin: 15px;
+    padding: 20px;
+    background-color: var(--v-light-blue);
+  }
+/* } */

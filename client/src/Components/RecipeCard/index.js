@@ -2,7 +2,7 @@ import React from "react";
 
 const Recipe = ({ title, image, calories, ingredients, preparation, url }) => {
   return (
-    <div>
+    <div id="recipecard">
       <h1>{title}</h1>
       <img src={image} alt="pic of recipe" />
       <ol>
@@ -12,7 +12,7 @@ const Recipe = ({ title, image, calories, ingredients, preparation, url }) => {
       </ol>
       <p>Calories: {calories}</p>
       {/* <p>{preparation}</p> */}
-      <a href={url}> Hungry? Go to the recipe</a>
+      <a href={url} target="_blank"> Hungry? Go to the recipe </a>
     </div>
   );
 };

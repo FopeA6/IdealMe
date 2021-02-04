@@ -1,14 +1,14 @@
-@media (max-width: 400px) {
+
 .nav,
 #logoutbtn {
   text-decoration: none;
   background-color: var(--v-light-blue);
   color: var(--coral);
-  margin: 0;
+  margin: 3px;
   padding: 15px 0;
   text-align: center;
   width: 100%;
-  border: none;
+  border: 0.17em solid var(--blue);
 }
 
 .nav:hover,
@@ -20,19 +20,23 @@
   display: flex;
   flex-direction: column;
   padding: 0 20px;
+  border-radius: 0.3em;
 }
 
-.topnav {
-  border: 1px solid black;
-}
+
 
 .allShow {
   display: flex;
   padding: 0 20px;
   justify-content: space-between;
+  
 }
 
 .menuIcon {
   cursor: pointer;
 }
+
+i {
+  margin-right: 10px;
 }
+

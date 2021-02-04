@@ -25,15 +25,16 @@ const NavBar = ({ isLoggedIn, logout }) => {
                 :
                 <div className="topnav">
                     <div className="allShow">
+                   <img className="apple" src="https://iconfair.com/wp-content/uploads/2020/11/Artboard-23-4.png"></img> 
                     <h2 id="idealMeTitle">idealMe</h2>
                     <h2 className="menuIcon" onClick={()=>openMenu()}>☰</h2>
                     </div>
                     <div className="myLinks" style={showStyle}>
-                        <NavLink to='/calories' className='nav' activeClassName='current' onClick={()=>openMenu()}>Calories</NavLink>
-                        <NavLink to='/details' className='nav' activeClassName='current' onClick={()=>openMenu()}>Details</NavLink>
-                        <NavLink to='/progress' className='nav' activeClassName='current' onClick={()=>openMenu()}>Progress</NavLink>
-                        <NavLink to='/recipe' className='nav' activeClassName='current' onClick={()=>openMenu()}>Recipe</NavLink>
-                        <button id="logoutbtn" onClick={logout}>Logout</button>
+                        <NavLink to='/calories' className='nav' activeClassName='current' onClick={()=>openMenu()}> <i className="fas fa-chart-pie"></i>Calories</NavLink>
+                        <NavLink to='/details' className='nav' activeClassName='current' onClick={()=>openMenu()}> <i className="fas fa-address-card"></i>Details</NavLink>
+                        <NavLink to='/progress' className='nav' activeClassName='current' onClick={()=>openMenu()}> <i className="fas fa-chart-area"></i>Progress</NavLink>
+                        <NavLink to='/recipe' className='nav' activeClassName='current' onClick={()=>openMenu()}> <i className="fas fa-utensils"></i>Recipe</NavLink>
+                        <button id="logoutbtn" onClick={logout}> <i className="fas fa-power-off"></i>Logout</button>
                     </div>
                 </div>
             }

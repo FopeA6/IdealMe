@@ -87,13 +87,13 @@ class Progress extends React.Component {
             title: {
               display: this.props.displayTitle,
               text: "Calories Watcher",
-              fontSize: 40,
+              fontSize: 32,
             },
             legend: {
               display: this.props.displayLegend,
               position: this.props.legendPosition,
               labels: {
-                fontSize: 36,
+                fontSize: 20,
             }
             },
             scales: {
@@ -116,13 +116,13 @@ class Progress extends React.Component {
             title: {
               display: this.props.displayTitle,
               text: "Weight Watcher",
-              fontSize: 40,
+              fontSize: 32,
             },
             legend: {
               display: this.props.displayLegend,
               position: this.props.legendPosition,
               labels: {
-                fontSize: 36,
+                fontSize: 20,
             }
             },
             // scales: {
