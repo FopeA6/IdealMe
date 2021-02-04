@@ -4,12 +4,12 @@ import { shallow } from 'enzyme';
 fetch = jest.fn(() =>Promise.resolve({
     json: () => Promise.resolve({
         userId: 4,
-        userName: "JourneytoHealth"
+        userName: "MrAwesome"
     })
 }))
 
 describe('App', () => {
-    let wrapper, component;
+    let component;
     let state = {
         isLoggedIn: false,
         currentUser: {}
@@ -22,7 +22,7 @@ describe('App', () => {
     });
 
     test('it exists', () => {
-        expect(wrapper).toExist
+        expect(component).toExist
     })
 
     test('it renders', () => {
@@ -32,7 +32,7 @@ describe('App', () => {
     test('number of switch', () => {
         let routerSwitch = component.find('Switch')
         expect(routerSwitch.length).toBe(1)
-        expect(routerSwitch.children().length).toBe(5);
+        expect(routerSwitch.children().length).toBe(7);
     });
 
     test('number of routers', () => {
@@ -41,27 +41,47 @@ describe('App', () => {
         let privRouter = component.find('PrivateRoute')
 
         expect(router.length).toBe(1)
-        expect(logRouter.length).toBe(2)
-        expect(privRouter.length).toBe(3)
+        expect(component.find('LoggedOutRoute')).toHaveLength(2)
+        expect(privRouter.length).toBe(4)
     });
 
     test('path of the routes', ()=>{
         let rswitch = component.find('Switch');
-        let router = component.find('Route');
-        let firstLogRouter = component.find('LoggedOutRoute').first();
-        let secondLogRouter = component.find('LoggedOutRoute').last();
-        let firstPrivRouter = component.find('PrivateRoute').first();
-        let secondPrivRouter = component.find('PrivateRoute').second();
-        let thirdPrivRouter = component.find('PrivateRoute').last();
-
+        let router = component.find('Route')
         expect(rswitch.prop('id')).toEqual('navPaths');
         expect(router.prop('path')).toEqual('/');
-        expect(firstLogRouter.prop('path')).toEqual('/login');
-        expect(secondLogRouter.prop('path')).toEqual('/register');
-        expect(firstPrivRouter.prop('path')).toEqual('/calories');
-        expect(secondPrivRouter.prop('path')).toEqual('/Userdetails');
-        expect(thirdPrivRouter.prop('path')).toEqual('/recipe');
     })
+
+    test('path of LoggedOutRoutes', () => {
+        const firstLoggedOutRoute = component.find('LoggedOutRoute').first();
+        expect(firstLoggedOutRoute.prop('path')).toEqual('/login')
+    })
+
+    test('path of LoggedOutRoute2', () => {
+        const secondLoggedOutRoute = component.find('LoggedOutRoute').at(1);
+        expect(secondLoggedOutRoute.prop('path')).toEqual('/register')
+    })
+
+    test('path of PrivateRoute1', () => {
+        const firstPrivateRoute = component.find('PrivateRoute').first();
+        expect(firstPrivateRoute.prop('path')).toEqual('/calories')
+    })
+
+    test('path of PrivateRoute2', () => {
+        const secondPrivateRoute = component.find('PrivateRoute').at(1);
+        expect(secondPrivateRoute.prop('path')).toEqual('/progress')
+    })
+
+    test('path of PrivateRoute3', () => {
+        const thirdPrivateRoute = component.find('PrivateRoute').at(2);
+        expect(thirdPrivateRoute.prop('path')).toEqual('/details')
+    })
+
+    test('path of PrivateRoute4', () => {
+        const fourthPrivateRoute = component.find('PrivateRoute').at(3);
+        expect(fourthPrivateRoute.prop('path')).toEqual('/recipe')
+    })
+
 
     test('check logout', ()=>{
         let instance = component.instance();
@@ -80,8 +100,6 @@ describe('App', () => {
 
         expect(instance['state'].currentUser.userName).toEqual('MrAwesome');
     })
-
-})
     test('it renders links to Logged Out Route Page', () => {
         let links = component.find('LoggedOutRoute');
         expect(links).toHaveLength(2)
@@ -89,7 +107,7 @@ describe('App', () => {
     
     test('it renders links to PrivateRoute Page', () => {
         let links = component.find('PrivateRoute');
-        expect(links).toHaveLength(3)
+        expect(links).toHaveLength(4)
         })
 
     test('it has a state', () => {
@@ -97,3 +115,19 @@ describe('App', () => {
         expect(instance['state']).toEqual( {isLoggedIn: false,
             currentUser: {}})
     })
+})
+
+//     describe('App', () => {
+//         let component;
+//         let state = {
+//             isLoggedIn: false,
+//             currentUser: {}
+//         }
+    
+//         beforeEach(() => {
+//             component = shallow(<App.WrappedComponent history={{push: (p)=>{}}} 
+//             state = {{isLoggedIn: false,
+//             currentUser: {}}} />)
+//         })
+//     })
+// })

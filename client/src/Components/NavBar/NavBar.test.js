@@ -73,11 +73,6 @@ test('it should handle a click event', () => {
     expect(wraper.state("active")).toBeTruthy()
 })
 
-// test('calls logout function when clicked', () => {
-//     const button = wrapper.find('button').first()
-//     button.stimulate('click')
-//     expect(logout.mock.calls.length).toBe(1)
-// })
 
 test('onClick of the menuIcon, the menu opens', () => {
 
