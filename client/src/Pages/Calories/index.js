@@ -16,6 +16,7 @@ class Calories extends Component {
   };
 
   componentDidMount() {
+    window.scrollTo(0,0);
     this.fetchCalories();
   }
 
@@ -132,7 +133,7 @@ class Calories extends Component {
 
     //calculate bmi, average calories consumption, search api, add today btn
     return (
-      <div>
+      <div className="countCalories">
         <h1> Tracking your daily calories! </h1>
         {this.state.newUser ? (
           <p>Please head over to Details page and enter your details</p>
@@ -146,7 +147,7 @@ class Calories extends Component {
           />
         )}
 
-        <div>
+        <div className="subContainer">
           <h2>What did you eat?</h2>
           <p>
             Enter the food you had here and we tell you how much calories you
@@ -166,7 +167,7 @@ class Calories extends Component {
           </form>
           </div>
           <div>
-            <h2>Your food has the following nutritional value:</h2>
+            <h3>Your food has the following nutritional value:</h3>
             <p>Total calories: {this.state.totalCal}</p>
             <DoughnutChart chartdata={this.state.chartData} />
 

@@ -30,7 +30,7 @@ class NewDayBtn extends React.Component {
         return(
             <div>
                 <p>Welcome do you want to start todays count?</p>
-                <button id="newday" onClick={this.addNewDay}>+</button>
+                <button id="newday" onClick={this.addNewDay}>Yes!</button>
             </div>
         )
     }

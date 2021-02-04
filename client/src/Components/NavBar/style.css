@@ -1,14 +1,29 @@
-@media (max-width: 400px) {
 .nav,
 #logoutbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
+  text-align: center;
   background-color: var(--v-light-blue);
   color: var(--coral);
-  margin: 0;
+  margin: 3px;
   padding: 15px 0;
-  text-align: center;
   width: 100%;
-  border: none;
+  border: 0.17em solid var(--blue);
+}
+
+.apple {
+  width: 70px;
+  height: 70px;
+  margin: 0;
+}
+
+#idealMeTitle {
+  display: flex;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav:hover,
@@ -20,10 +35,7 @@
   display: flex;
   flex-direction: column;
   padding: 0 20px;
-}
-
-.topnav {
-  border: 1px solid black;
+  border-radius: 0.3em;
 }
 
 .allShow {
@@ -35,4 +47,7 @@
 .menuIcon {
   cursor: pointer;
 }
+
+i {
+  margin-right: 10px;
 }

@@ -1,0 +1,21 @@
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section > h1 {
+  text-align: center;
+}
+
+.inputContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inputContainer > label {
+  text-align: start;
+}
