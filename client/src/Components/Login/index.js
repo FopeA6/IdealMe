@@ -31,7 +31,7 @@ class Login extends Component {
                         <input type="password" name="password" value={this.state.password} onChange={this.handleInput} />
                     </div>
                     <div className="loginInput">
-                        <input type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled'} disabled={this.formIncomplete()} value="Login" />
+                        <input id="inputBtn" type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled'} disabled={this.formIncomplete()} value="Login" />
                     </div>
                 </form>
             </div>

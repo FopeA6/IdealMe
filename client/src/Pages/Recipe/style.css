@@ -11,11 +11,7 @@
 
 .recipe {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
-  border: 1px solid black;
   width: 100%;
-}
-
-RecipeCard {
-  width: 50%;
 }

@@ -142,7 +142,7 @@ class Userdetails extends Component {
                         </select>
                     </div>
 
-                    <input type="submit" value="add details" />
+                    <input className="inputBtn" type="submit" value="add details" />
                 </form>
                 </div>
             </section>

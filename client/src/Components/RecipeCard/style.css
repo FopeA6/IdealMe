@@ -1,3 +1,24 @@
-.recipeContainer {
+#recipecard {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infoDivide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.infoDivide > * {
+  margin-bottom: 0;
+  padding: 0 20px;
+}
+
+@media only screen and (max-width: 500px) {
+  #recipecard {
+    flex-direction: column;
+  }
 }
