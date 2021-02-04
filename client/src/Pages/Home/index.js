@@ -23,7 +23,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
+            <div className="homeContainer">
                 
                 <div id="hometop" className="home">
                     <div className="centered">

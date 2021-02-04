@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-
+import './style.css';
 
 class Userdetails extends Component {
     state = {
@@ -99,36 +99,48 @@ class Userdetails extends Component {
                 <h1>View your details here</h1>
                 <div className="container1">
                 <form id="userDetails" onSubmit={this.addDetails}>
-                    <label htmlFor="height">Height in inches</label>
-                    <input type="number" step=".01" name="height" placeholder="E.g. 70.1"/>
-
-                    <label htmlFor="weight">Weight in lbs</label>
-                    <input type="number" step=".01" name="weight" placeholder="E.g. 170.25"/>
+                    <div className="inputContainer">
+                        <label htmlFor="height">Height in inches</label>
+                        <input type="number" step=".01" name="height" placeholder="E.g. 70.1"/>
+                    </div>
                     
-                    <label htmlFor="age">Age</label>
-                    <input type="number" name="age" placeholder="E.g. 25"/>
+                    <div className="inputContainer">
+                        <label htmlFor="weight">Weight in lbs</label>
+                        <input type="number" step=".01" name="weight" placeholder="E.g. 170.25"/>
+                    </div>
                     
-                    <label htmlFor="gender">Gender:</label>
-                    <select id="gender" name="genderSelect">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    </select>
-
-                    <label htmlFor="fitness">Fitness Level:</label>
-                    <select id="firness" name="fitnesslist">
-                    <option value="Not Active">Not Active</option>
-                    <option value="Lite Activity">Lite Activity</option>
-                    <option value="Moderate Active">Moderate Active</option>
-                    <option value="Elite Activity">Elite Activity</option>
-                    </select>
-
-                    <label htmlFor="goal">Calories Goal:</label>
-                    <select id="goal" name="caloriesGoal">
-                    <option value="maintain">Maintain weight</option>
-                    <option value="mild">Mild weight loss</option>
-                    <option value="weight">Weight loss</option>
-                    <option value="extream">Extreme weight loss</option>
-                    </select>
+                    <div className="inputContainer">
+                        <label htmlFor="age">Age</label>
+                        <input type="number" name="age" placeholder="E.g. 25"/>
+                    </div>
+                    
+                    <div className="inputContainer">
+                        <label htmlFor="gender">Gender:</label>
+                        <select id="gender" name="genderSelect">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        </select>
+                    </div>
+                    
+                    <div className="inputContainer">
+                        <label htmlFor="fitness">Fitness Level:</label>
+                        <select id="firness" name="fitnesslist">
+                        <option value="Not Active">Not Active</option>
+                        <option value="Lite Activity">Lite Activity</option>
+                        <option value="Moderate Active">Moderate Active</option>
+                        <option value="Elite Activity">Elite Activity</option>
+                        </select>
+                    </div>
+                    
+                    <div className="inputContainer">
+                        <label htmlFor="goal">Calories Goal:</label>
+                        <select id="goal" name="caloriesGoal">
+                        <option value="maintain">Maintain weight</option>
+                        <option value="mild">Mild weight loss</option>
+                        <option value="weight">Weight loss</option>
+                        <option value="extream">Extreme weight loss</option>
+                        </select>
+                    </div>
 
                     <input type="submit" value="add details" />
                 </form>

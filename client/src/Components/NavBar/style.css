@@ -1,14 +1,21 @@
-@media (max-width: 400px) {
+.linkText {
+  margin-left: 10px;
+}
+
 .nav,
 #logoutbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
+  text-align: center;
   background-color: var(--v-light-blue);
   color: var(--coral);
   margin: 0;
   padding: 15px 0;
-  text-align: center;
   width: 100%;
   border: none;
+  cursor: pointer;
 }
 
 .nav:hover,
@@ -35,4 +42,42 @@
 .menuIcon {
   cursor: pointer;
 }
+
+@media (max-width: 400px) {
+  .nav,
+  #logoutbtn {
+    text-decoration: none;
+    background-color: var(--v-light-blue);
+    color: var(--coral);
+    margin: 0;
+    padding: 15px 0;
+    text-align: center;
+    width: 100%;
+    border: none;
+  }
+
+  .nav:hover,
+  #logoutbtn:hover {
+    background-color: gray;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .topnav {
+    border: 1px solid black;
+  }
+
+  .allShow {
+    display: flex;
+    padding: 0 20px;
+    justify-content: space-between;
+  }
+
+  .menuIcon {
+    cursor: pointer;
+  }
 }

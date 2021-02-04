@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RecipeCard from "../../Components/RecipeCard";
+import './style.css';
 
 const Recipe = () => {
   // key = process.env.API_KEY;
