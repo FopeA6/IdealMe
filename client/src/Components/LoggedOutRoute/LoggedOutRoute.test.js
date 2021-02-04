@@ -3,6 +3,8 @@ import { render, shallow } from 'enzyme';
 
 describe('LoggedOutRoute', () => {
     let component;
+    let state = {
+        isLoggedIn: false }
 
     beforeEach(() => {
         component = shallow(<LoggedOutRoute />);
@@ -29,6 +31,16 @@ describe('LoggedOutRoute', () => {
     test('It calls props.isLoggedIn when rendered', () => {
         let LoggedOutRoute = component.find('Route')
         expect(LoggedOutRoute).toHaveLength(1)
+    })
+
+    test('check logout', ()=>{
+        let instance = component.instance();
+        instance.setState({ isLoggedIn: true });
+        expect(instance.state.isLoggedIn).toBe(true);
+
+        instance.logout();
+
+        expect(instance.state.isLoggedIn).toBe(false);
     })
 
 })
