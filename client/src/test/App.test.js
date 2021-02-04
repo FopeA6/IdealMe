@@ -100,6 +100,7 @@ describe('App', () => {
 
         expect(instance['state'].currentUser.userName).toEqual('MrAwesome');
     })
+    
     test('it renders links to Logged Out Route Page', () => {
         let links = component.find('LoggedOutRoute');
         expect(links).toHaveLength(2)
