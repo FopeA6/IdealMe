@@ -6,7 +6,7 @@ A calorie tracking app to allow users to be the person they want to see in the m
 
 ![idealMe](https://github.com/rajtandel21/IdealMe/blob/dev/idealme.gif)
 
-To visit the website click [here](https://)
+To visit the website click [here](https://idealme.netlify.app/)
 
 ## To use
 
