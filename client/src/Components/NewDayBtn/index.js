@@ -21,7 +21,7 @@ class NewDayBtn extends React.Component {
             })
         }
 
-        const sendData = await fetch(`http://localhost:5000/new-details`, options);
+        const sendData = await fetch(`https://idealme-server.herokuapp.com/new-details`, options);
         const res = await sendData.json();
         if(res.err){ throw Error(res.err) }
         this.props.fetchCalories();

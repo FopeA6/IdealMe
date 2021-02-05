@@ -18,7 +18,7 @@ class App extends React.Component {
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(userData)
           }
-          const r = await fetch(`http://localhost:5000/auth/login`, options)
+          const r = await fetch(`https://idealme-server.herokuapp.com/auth/login`, options)
           const data = await r.json();
           if (data.err){ throw Error(data.err) }
           this.setState({ isLoggedIn: true, currentUser: data })

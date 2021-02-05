@@ -22,7 +22,7 @@ class Calories extends Component {
 
   fetchCalories = async () => {
     const resp = await fetch(
-      `http://localhost:5000/details/${this.props.user.name}`
+      `https://idealme-server.herokuapp.com/details/${this.props.user.name}`
     );
     const data = await resp.json();
     if (data.err) {
@@ -167,7 +167,7 @@ class Calories extends Component {
           </form>
           </div>
           <div>
-            <h3>Your food has the following nutritional value:</h3>
+            <p>Your food has the following nutritional value:</p>
             <p>Total calories: {this.state.totalCal}</p>
             <DoughnutChart chartdata={this.state.chartData} />
 

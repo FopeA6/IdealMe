@@ -20,7 +20,7 @@ class Progress extends React.Component {
   }
 
   fetchData = async()=>{
-      const resp = await fetch(`http://localhost:5000/progress/${this.props.user.userId}`)
+      const resp = await fetch(`https://idealme-server.herokuapp.com/progress/${this.props.user.userId}`)
       const data = await resp.json();
       if(data.err){
           throw Error(data.err);

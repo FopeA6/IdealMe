@@ -12,7 +12,7 @@ class Userdetails extends Component {
     }
 
     fetchDetails = async ()=>{
-        const resp = await fetch(`http://localhost:5000/details/${this.props.user.name}`)
+        const resp = await fetch(`https://idealme-server.herokuapp.com/details/${this.props.user.name}`)
         const data = await resp.json()
         if(data.err){ throw Error(data.err) }
         this.setState({ data })
@@ -47,7 +47,7 @@ class Userdetails extends Component {
                 userId: this.props.user.userId
             })
         }
-        const sendData = await fetch(`http://localhost:5000/new-details`, options);
+        const sendData = await fetch(`https://idealme-server.herokuapp.com/new-details`, options);
         const res = await sendData.json();
         if(res.err){ throw Error(res.err) }
         this.props.history.push('/calories');

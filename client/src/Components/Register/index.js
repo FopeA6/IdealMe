@@ -27,7 +27,7 @@ class Register extends Component {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userData)
             }
-            const r = await fetch(`http://localhost:5000/auth/register`, options);
+            const r = await fetch(`https://idealme-server.herokuapp.com/auth/register`, options);
             const data = await r.json();
             if (data.err) { throw Error(data.err) }
             this.props.login(userData, true);

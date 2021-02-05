@@ -16,7 +16,7 @@ class DailyCalories extends React.Component{
             })
         }
         
-        const sendData = await fetch(`http://localhost:5000/update-count/${this.props.user}`, options);
+        const sendData = await fetch(`https://idealme-server.herokuapp.com/update-count/${this.props.user}`, options);
         const res = await sendData.json();
         if(res.err){ throw Error(res.err) }
         e.target.caloriesValue.value = "";

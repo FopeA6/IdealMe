@@ -12,8 +12,9 @@ describe('NavBar', () => {
 
     beforeEach(() => {
         // mockLogout = { logout: jest.fn() }
-        mockisLoggedIn = { isLoggedIn: jest.fn() }
         wrapper = shallow(<NavBar logout={mockLogout} isLoggedIn={mockisLoggedIn}/>)
+        mockisLoggedIn = jest.fn();
+        mockLogout = jest.fn();
     })
 
     test('it renders', () => {
@@ -77,15 +78,24 @@ describe('NavBar', () => {
 
 
     test('closeLog', ()=>{
-        //const instance = wrapper.instance();
-        const pro2 = wrapper.props()
-        const func = pro2['children'].props.children[1].props.children[4].props.onClick
-        jest.spyOn(wrapper, func)
+        const instance = wrapper.instance();
+        jest.spyOn(instance, 'closeLog');
+        jest.spyOn(instance, 'openMenu');
+        instance.closeLog();
 
         expect(instance.closeLog).toHaveBeenCalledTimes(1);
         expect(instance.openMenu).toHaveBeenCalledTimes(1);
-        expect(instance.logout).toHaveBeenCalledTimes(1);
 
+    });
+
+    test('state', ()=>{
+        const instance = wrapper.instance();
+        jest.spyOn(instance, 'openMenu');
+        expect(instance['state'].showStyle.display).toEqual("none");
+        
+        instance.openMenu();
+
+        expect(instance['state'].showStyle.display).toEqual("flex");
     })
 
 
