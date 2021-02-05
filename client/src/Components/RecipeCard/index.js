@@ -10,8 +10,8 @@ const Recipe = ({ title, image, calories, ingredients, preparation, url }) => {
       </div>
       <div className="infoDivide">
         <ol>
-          {ingredients.map((ingredient) => (
-           <li>{ingredient.text}</li> 
+          {ingredients.map((ingredient, idx) => (
+           <li key={idx}>{ingredient.text}</li> 
           ))}
         </ol>
         <p>Calories: {calories}</p>

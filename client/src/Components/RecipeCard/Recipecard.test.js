@@ -7,7 +7,7 @@ describe('Recipecard', () => {
     
     beforeEach(() => {
         //stubRecipes = { title , image, whatever, calories, ingredients, url}
-        component = shallow(<Recipecard title ={[]} image ={[]} calories ={[]} ingredients ={[]} url ={[]}   />)
+        component = shallow(<Recipecard title ={[]} image ={[]} calories ={[]} ingredients ={["apples", "bananas"]} url ={[]}   />)
     })
 
     test('it renders', () => {
@@ -34,7 +34,8 @@ describe('Recipecard', () => {
     })
 
     test('renders a list', () => {
-        expect(component.find('li')).toHaveLength(0);
+        const divElement = component.find('.infoDivide');
+        expect(divElement.find('li')).toHaveLength(2);
     })
 
 

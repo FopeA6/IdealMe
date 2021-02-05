@@ -22,7 +22,8 @@ class Userdetails extends Component {
         e.preventDefault();
         const today = new Date()
         
-        const currentDate = new Intl.DateTimeFormat('en-Uk', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(today);
+        const currentDate = new Intl.DateTimeFormat('en-Uk', 
+            {year: 'numeric', month: '2-digit',day: '2-digit'}).format(today);
         
         const caloriesG = await this.caloriesCalculator(e.target.height.value, 
             e.target.weight.value, 
