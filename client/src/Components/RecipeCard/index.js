@@ -11,7 +11,7 @@ const Recipe = ({ title, image, calories, ingredients, preparation, url }) => {
       <div className="infoDivide">
         <ol>
           {ingredients.map((ingredient) => (
-            <li>{ingredient.text}</li>
+           <li>{ingredient.text}</li> 
           ))}
         </ol>
         <p>Calories: {calories}</p>

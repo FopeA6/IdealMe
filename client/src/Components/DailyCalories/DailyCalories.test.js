@@ -45,13 +45,7 @@ describe('DailyCalories', () => {
 
         expect(instance.addCalories).toHaveBeenCalledTimes(1);
     })
-// test('it calls on addCalories prop on form submission', () => {
-//     form = component.find('form');
-//     component.setProps({key="{1}", BMI="{26}", intake="{2500}", consumed="{100}", user="{2}", fetchCalories="{fetchmock}"});
-//     form.simulate("submit", fakeEvent);
-//     expect(fetchMock).toHaveBeenNthCalledWith(1, 'bob', 'enter');
-// })
-// lines 30
+
     test('the addCalories function', async() => {
         const e = { preventDefault: () => console.log('preventDefault'),
                     target: {
@@ -69,4 +63,5 @@ describe('DailyCalories', () => {
         expect(e.target.caloriesValue.value).toBe("");
         expect(instance['props'].fetchCalories).toHaveBeenCalledTimes(1);
     })
+
 })

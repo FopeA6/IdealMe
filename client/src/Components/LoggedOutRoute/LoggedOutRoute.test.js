@@ -35,12 +35,16 @@ describe('LoggedOutRoute', () => {
         expect(LoggedOutRoute).toHaveLength(1)
     })
 
-    test('check logout', ()=>{
-        console.log(component.props().render)
-        expect(component.props().isLoggedIn).toExist;
-        // instance.logout();
-
-        // expect(instance.props.isLoggedIn).toBe(false);
+    test('The props for isLoggedIn renders accordingly', () => {
+        const loginComponent = shallow(<LoggedOutRoute isLoggedIn={true}/>)
+        loginComponent.setProps({isLoggedIn: true})
+        expect(loginComponent).toBeTruthy
+    })
+    
+    test('The props for isLoggedIn renders accordingly', () => {
+        const loginComponent = shallow(<LoggedOutRoute isLoggedIn={false}/>)
+        loginComponent.setProps({isLoggedIn: false})
+        expect(loginComponent).toBeFalsy
     })
 
 })

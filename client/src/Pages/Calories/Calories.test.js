@@ -48,10 +48,6 @@ describe('Calories', () => {
         expect(form).toHaveLength(1);
     });
 
-    test('it has a h3', () => {
-        expect(component.find('h3').text()).toContain('Your food has the following nutritional value:');
-    });
-
     test('it has a table', () => {
         expect(component.find('table')).toHaveLength(1)
     });

@@ -75,4 +75,9 @@ describe('Recipe', () => {
     test('on start it gets Recipes', () => {
         expect(props.getRecipes).toHaveBeenCalled();
     })
+
+    test('it renders a route to RecipeCard', () => {
+        let links = component.find('RecipeCard');
+        expect(links).toHaveLength(1)
+    })
 })

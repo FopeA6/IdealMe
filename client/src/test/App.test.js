@@ -35,6 +35,7 @@ describe('App', () => {
         expect(routerSwitch.children().length).toBe(7);
     });
 
+
     test('number of routers', () => {
         let router = component.find('Route')
         let logRouter = component.find('LoggedOutRoute')

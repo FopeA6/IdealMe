@@ -11,7 +11,7 @@ describe('Recipecard', () => {
     })
 
     test('it renders', () => {
-        expect(component.find('div')).toHaveLength(1)
+        expect(component.find('div')).toHaveLength(3)
         })
     test('it renders the title', () => {
         expect(component.find('h1')).toHaveLength(1)
@@ -34,7 +34,7 @@ describe('Recipecard', () => {
     })
 
     test('renders a list', () => {
-        expect(component.find('li')).toHaveLength(1);
+        expect(component.find('li')).toHaveLength(0);
     })
 
 
