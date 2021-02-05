@@ -65,19 +65,6 @@ Working code was pushed regularly to the development branch here on github.
 
 > If users need some food inspiration, they can go to the Recipe page and enter a food they feel like eating and an API will fetch some recipe ideas. The ideas display the calorie count, the ingredients and a picture. If the user wants to make the recipe, they can navigate to the site the recipe is from.
 
-## Wins and Challenges
-
-| **Wins**                            | **Challenges** |
-| ----------------------------------- | -------------- |
-| All must haves completed in project |                |
-|                                     |                |
-|                                     |                |
-|                                     |                |
-|                                     |                |
-
-## Bugs
-
--
 
 ## Future Features
 
